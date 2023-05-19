@@ -11,6 +11,25 @@ const Header = (title, date, temp) => {
   //    <span class="temp">{ temp }</span>
   //  </div>
   //
+  const cardHeader = document.createElement("div");
+  const cardDate = document.createElement('span');
+  const cardTitle = document.createElement("h1");
+  const cardTemp = document.createElement('span');
+
+  cardHeader.appendChild(cardDate);
+  cardHeader.appendChild(cardTitle);
+  cardHeader.appendChild(cardTemp);
+
+  cardHeader.classList.add("header");
+  cardDate.classList.add("date");
+  cardTemp.classList.add("temp");
+  
+
+  cardDate.textContent = date;
+  cardTemp.textContent = temp;
+  cardTitle.textContent = title;
+  
+  return cardHeader;
 }
 
 const headerAppender = (selector) => {
@@ -26,6 +45,11 @@ const headerAppender = (selector) => {
   // We are taking care of passing in the correct selector on line 16,
   // so all that you need to do is pass it into the querySelector method
   // for the tests to work!
+
+  const cardElemnt = Header("Bloomtech Times", "5/16/23", 26 );
+  document.querySelector(selector).appendChild(cardElemnt);
+ 
 }
+//  headerAppender (".header-container");
 
 export { Header, headerAppender }
